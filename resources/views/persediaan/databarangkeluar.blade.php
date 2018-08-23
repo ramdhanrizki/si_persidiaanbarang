@@ -24,7 +24,7 @@
                         <p>{{ \Session::get('error') }}</p>
                     </div><br />
                 @endif
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="datatable">
                     <thead>
                         <th>#</th>
                         <th width="10%">Kode Barang</th>
@@ -67,5 +67,9 @@
 @endsection
 
 @push('script')
-
+<script>
+$(document).ready(function() {
+    $('#datatable').DataTable();
+});
+</script>
 @endpush

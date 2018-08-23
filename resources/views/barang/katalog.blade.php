@@ -24,9 +24,10 @@
                         <p>{{ \Session::get('error') }}</p>
                     </div><br />
                 @endif
-                <table class="table table-bordered">
+                <?php $no=1; ?>
+                <table class="table table-bordered" id="datatable">
                     <thead>
-                        <th>#</th>
+                        <th width="3%">#</th>
                         <th width="10%">Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>Satuan</th>
@@ -36,7 +37,7 @@
                     <tbody>
                         @foreach($katalog as $item)
                         <tr>
-                            <td>#</td>
+                            <td>{{$no++}}</td>
                             <td>{{$item->kode_barang}}</td>
                             <td>{{$item->nama_barang}}</td>
                             <td>{{$item->satuan}}</td>
@@ -56,5 +57,9 @@
 @endsection
 
 @push('script')
-
+<script>
+$(document).ready(function() {
+    $('#datatable').DataTable();
+});
+</script>
 @endpush
