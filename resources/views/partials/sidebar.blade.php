@@ -22,7 +22,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li><a href="#"><i class="fa fa-book"></i> <span>Manajemen barang</span></a></li>
+        <li><a href="/katalog"><i class="fa fa-book"></i> <span>Manajemen barang</span></a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Persediaan Barang</span>
@@ -31,8 +31,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="invoice.html"><i class="fa fa-circle-o"></i> Barang Masuk</a></li>
-            <li><a href="profile.html"><i class="fa fa-circle-o"></i> Barang Keluar</a></li>
+            <li><a href="/barangmasuk"><i class="fa fa-circle-o"></i> Barang Masuk</a></li>
+            <li><a href="/barangkeluar"><i class="fa fa-circle-o"></i> Barang Keluar</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -54,10 +54,6 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Pengaturan Situs</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Pengaturan Akun</a></li>
-          </ul>
         </li>
       </ul>
     </section>

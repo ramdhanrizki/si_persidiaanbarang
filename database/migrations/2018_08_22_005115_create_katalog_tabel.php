@@ -18,7 +18,7 @@ class CreateKatalogTabel extends Migration
             $table->string('nama_barang');
             $table->string('satuan');
             $table->text('spesifikasi');
-
+            $table->integer('stok');
             $table->timestamps();
             $table->primary('kode_barang');
         });

@@ -25,6 +25,10 @@
                 <input type="text" class="form-control" id="satuan" name="satuan" placeholder="Masukkan Jenis Satuan Barang, Contoh : Pak, Dus, Paket.." data-validation="required">
             </div>
             <div class="form-group">
+                <label for="stok">Stok Awal</label>
+                <input type="number" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok Awal" data-validation="required">
+            </div>
+            <div class="form-group">
                 <label for="nama_barang">Spesifikasi</label>
                 <textarea name="spesifikasi" id="spesifikasi" class="form-control" data-validation="required"></textarea>
             </div>

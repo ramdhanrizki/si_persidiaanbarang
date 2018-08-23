@@ -7,6 +7,10 @@ use App\katalog;
 
 class KatalogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $katalog = Katalog::all();
@@ -24,6 +28,7 @@ class KatalogController extends Controller
         $katalog->kode_barang = $request->input('kode_barang');
         $katalog->nama_barang = $request->input('nama_barang');
         $katalog->satuan = $request->input('satuan');
+        $katalog->stok = $request->input('stok');
         $katalog->spesifikasi = $request->input('spesifikasi');
         $katalog->save();
         return redirect('katalog')->with('success', 'Data berhasil ditambah');
@@ -41,6 +46,7 @@ class KatalogController extends Controller
         $katalog->kode_barang = $request->input('kode_barang');
         $katalog->nama_barang = $request->input('nama_barang');
         $katalog->satuan = $request->input('satuan');
+        $katalog->stok = $request->input('stok');
         $katalog->spesifikasi = $request->input('spesifikasi');
         $katalog->save();
         return redirect('katalog')->with('success', 'Data berhasil diupdate');
@@ -55,7 +61,15 @@ class KatalogController extends Controller
         }catch(Exception $e){
             return redirect('katalog')->with('error', 'Terjadi kesalahan server, silakan hubungi bagian IT');
         }
-        
-        
+    }
+    public function getAllBarang()
+    {
+        $katalog = Katalog::all();
+        if(isset($_GET['q'])){
+            $katalog = Katalog::where('nama_barang', 'like', '%' . $_GET['q'] . '%')
+                                ->orWhere('kode_barang','like','%'.$_GET['q'].'%')->get();
+        }
+         
+        return response()->json($katalog);
     }
 }

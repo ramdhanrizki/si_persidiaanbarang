@@ -17,6 +17,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('css/skins/_all-skins.min.css')}}">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
   <style>
     .img-logo{
       width:100%;
@@ -57,27 +59,29 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Administrator</span>
+              <img src="{{asset('img/user.png')}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('img/user.png')}}" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{Auth::user()->name}} 
+                  <small>{{Auth::user()->email}}</small>
                 </p>
               </li>
               
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/profile" class="btn btn-default btn-flat">Update Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"class="btn btn-default btn-flat">Logout</a>
                 </div>
               </li>
             </ul>
@@ -87,3 +91,6 @@
       </div>
     </nav>
   </header>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
